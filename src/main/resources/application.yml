@@ -8,3 +8,13 @@ spring:
     schema: classpath:schema.sql
 sever:
   port: 9000
+
+---
+spring:
+  profiles: container
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    schema: classpath:schema.sql
+    initialize: true
